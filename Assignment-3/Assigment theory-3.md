@@ -14,8 +14,7 @@ root.render(head);
 ``` 
 here head is variable that holds the JSX code and we can render it to our dom
 
-```
-here head is variable that holds the JSX code and we can render it to our dom
+
 
 const root = ReactDOM.createRoot(document.querySelector(".root"));
 root.render(head);
