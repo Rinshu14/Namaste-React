@@ -55,13 +55,13 @@ It is also called dead code elimination because while building a app for product
 Whenever parcel builds our code it creates a dist folder with compressed file conactenated with a hash code after that whenever we chnage our code parcel identifies in which file we made changes and compiles only those files UI is refreshed on browser only for those files instead of refreshing the entire page in browser. Parcel uses File watching algorithm written in c++ to identify the changes files.One of major advantage of HMR is state persistant as only our one module in brower is getting refreshed instead of entire page our states in page remains persisted.
 
 ## Q13 --
-#1- Diagnostics- 
+`1- Diagnostics-` 
                     If we made any error in code parcel gives us beatutiful and detailed explanation of that error in browser in terminal and browser both. It can indicates a exact loacation of error with a highlighted syntax and also suggest the solution for that error.
 
-# 2- Code splitting -
+` 2- Code splitting -`
  when multiple file uses same modules than parcel creates a seprate bundles for those modules so that these commomly used bundles can be loaded paralley with our appliaction code and it also cached seprately.
 
-# 3- Diffrential Bundling- 
+` 3- Diffrential Bundling- `
 Parcel can build different bundles for diffrenet versions of browser as older versions of browsers doesn't support the ES6 syntax parcel can build the bundles for those browsers after traspiling the ES6 into javascript . These bundles dependes on the browserlist given in package.json file.
 
 
