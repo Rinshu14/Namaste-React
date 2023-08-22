@@ -1,31 +1,31 @@
-<<<<<<< HEAD
+
 ## JSX--
-=======
-JJSX--
->>>>>>> cf2b03756810368a9220f0ca0f15b873bf85d4f3
+
+
+
 JSX is a syntax extension that lets us write HTML like markup in a javaScript file. in early days of react writing code even for a simple react elemnt was too long and when it becomes on nested element it become even harder and messey and it it was not even readable than JSX came into picture in which we can react element by writing HTML like code.
 ex--
 ``` 
 const head=<h1>heading</h1>
-<<<<<<< HEAD
+
 
 const root = ReactDOM.createRoot(document.querySelector(".root"));
 root.render(head);
 ``` 
 here head is variable that holds the JSX code and we can render it to our dom
-=======
+
 ```
 here head is variable that holds the JSX code and we can render it to our dom
 
 const root = ReactDOM.createRoot(document.querySelector(".root"));
 root.render(head);
->>>>>>> cf2b03756810368a9220f0ca0f15b873bf85d4f3
+
 
 
 This JSX code first transpiled into react element by babel. 
 React and JSX are two diffrent things and can be used independently.
 
-<<<<<<< HEAD
+
 ## JSX Superpowers-- 
 Before JSX we used to write markup , CSS and markup in different files but with evolution of web apps as intreactive manipulating  HTML with javaScript is the requirement but doing it by using seprate files for HTML, CSS and Js was a pain for developers . Than JSX came into picture that lets the developers write HTML like syntax in js files itself and it increases efficeincy and readability of code also.
 
@@ -55,7 +55,7 @@ values for type attribute-
 
 
 
-=======
+
 JSX Superpowers-- 
 Before JSX we used to write markup , CSS and markup in different files but with evolution of web apps as intreactive manipulating  HTML with javaScript is the requirement but doing it by using seprate files for HTML, CSS and Js was a pain for developers . Than JSX came into picture that lets the developers write HTML like syntax in js files itself and it increases efficeincy and readability of code also.
->>>>>>> cf2b03756810368a9220f0ca0f15b873bf85d4f3
+
