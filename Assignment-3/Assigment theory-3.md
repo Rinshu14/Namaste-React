@@ -28,7 +28,7 @@ React and JSX are two diffrent things and can be used independently.
 ## JSX Superpowers-- 
 Before JSX we used to write markup , CSS and markup in different files but with evolution of web apps as intreactive manipulating  HTML with javaScript is the requirement but doing it by using seprate files for HTML, CSS and Js was a pain for developers . Than JSX came into picture that lets the developers write HTML like syntax in js files itself and it increases efficeincy and readability of code also.
 
-## {TitleComponent} Vs <TitleComponent/> Vs <TitleComponent><TitleComponent/>
+## `{TitleComponent}` vs `{<TitleComponent/>}` vs `{<TitleComponent></TitleComponent>}` in `JSX`.
 `{TitleComponent}`: It state that TitleComponent is javascript variable or expression and it can be used in {} in JSX.
 `<TitleComponent/>`: It state that TitleComponent is  component in react that is returning some JSX. A component is written in this format in <componentName/> react if it doesn't have any children.
 
