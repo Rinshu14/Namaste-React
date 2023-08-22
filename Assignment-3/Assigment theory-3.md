@@ -55,6 +55,4 @@ values for type attribute-
 
 
 
-JSX Superpowers-- 
-Before JSX we used to write markup , CSS and markup in different files but with evolution of web apps as intreactive manipulating  HTML with javaScript is the requirement but doing it by using seprate files for HTML, CSS and Js was a pain for developers . Than JSX came into picture that lets the developers write HTML like syntax in js files itself and it increases efficeincy and readability of code also.
 
