@@ -162,17 +162,17 @@ p {
   text-decoration: none;
   color: #686868;
 }
-input {
+ .input_login {
   padding: 0.5rem;
-  width: 20rem;
+   width: 20rem;
   border-radius: 0.5rem;
-  /* border: 2px solid #888888; */
+border: 2px solid #888888; 
   border: 2px solid  rgb(238, 135, 152);
   font-size: 1.2rem;
   font-weight: 500;
   outline-color: #f5761a;
   margin: auto;
-}
+} 
 .lgn_btn {
   background-color: #f5761a;
   width: 20rem;

@@ -56,7 +56,7 @@ validate,
     <form style={{display: "flex",
         flexDirection: "column", height: "20rem",
         width: "27rem"}}  onSubmit={formik.handleSubmit}>
-      <input
+      <input className="input_login"
        name="userName"
         type="text"
         placeholder="UserName"
@@ -65,7 +65,7 @@ validate,
         value={formik.values.userName}
       ></input>
       {formik.touched.userName && formik.errors.userName ? <div>{formik.errors.userName}</div> : null}
-      <input
+      <input className="input_login"
     name="password"
         type="Password"
         placeholder="Password"
@@ -74,7 +74,7 @@ validate,
         value={formik.values.password}
       ></input>
       {formik.touched.password && formik.errors.password ? <div>{formik.errors.password}</div> : null}
-      <input
+      <input className="input_login"
       name="email"
         type="email"
         placeholder="Email"
