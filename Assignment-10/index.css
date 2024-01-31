@@ -1,0 +1,24 @@
+ /* @import "tailwind/base";
+@tailwind components;
+@tailwind utilities;  */
+
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+  }
+
+body {
+    background-color:#E8E8E8;
+    margin: 0px;
+    color: #404040;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }

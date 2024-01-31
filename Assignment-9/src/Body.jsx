@@ -6,6 +6,11 @@ import ShimmerUI from "./ShimmerUI";
 import { useState, useEffect } from "react";
 import { restaurant_list_api } from "../utils/Constants";
 import SearchBar from "./SearchBar";
+import {RecommendedRestCard} from "./RecommendedRestCard";
+
+
+const RecommendedRest = RecommendedRestCard(ResCard)
+
 
 
 export default Body = () => {
@@ -50,9 +55,10 @@ export default Body = () => {
         <SearchBar srch_clck={searchClicked} />
         <div className="res_card_container">
           {filteredList.map((restaurant) => {
-            return (
-              <ResCard key={restaurant.info.id} restaurant={restaurant.info} />
-            );
+            return <>
+            {restaurant.info.avgRating>4? <RecommendedRest key={restaurant.info.id}  restaurant={restaurant.info}/> :  <ResCard key={restaurant.info.id} restaurant={restaurant.info} />}
+              {/* // <ResCard key={restaurant.info.id} restaurant={restaurant.info} /> */}
+              </>
           })}
         </div>
       </>
