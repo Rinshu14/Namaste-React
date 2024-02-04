@@ -19,7 +19,7 @@ const WatchFrame = () => {
   };
 
   return (
-    <div className="p-4 bg-slate-500">
+    <div className="">
       <iframe
         width="713"
         height="401"

@@ -24,7 +24,14 @@ export const youTube_API =
   youTube_API_Key +
   "&maxResults=50";
 
-export const search_sugst_api=" http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
+export const search_sugst_api =
+  " http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
-export const GetVideoById="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id="
-// Ks-_Mh1QhMc&key="+youTube_API_Key+"HTTP/1.1";
+export const GetVideoById =
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=";
+
+export const LIVE_CHAT_COUNT = 20;
+
+export const comments_on_video="https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&order=relevance&videoId="
+// K0qzyq6aZ5E&key="+youTube_API_Key
+//https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&order=relevance&videoId=3BQ-iomGtvk&key=AIzaSyCvkKkkKi1JI8OBCVkcsXc0lOCFxG5SvmM

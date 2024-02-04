@@ -13,3 +13,11 @@
     /* background-color: #DBD7D2; */
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  /* @layer utilities{
+    .overflow-scrollabel{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  } */

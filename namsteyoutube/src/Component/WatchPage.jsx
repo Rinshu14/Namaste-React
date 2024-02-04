@@ -3,7 +3,8 @@ import WatchFrame from "./WatchFrame";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { closeSidebar } from "../Redux/HamburgerSlice";
-import CommentContainer from "./CommentContainer"
+import CommentContainer from "./CommentContainer";
+import LiveChatContainer from "./LiveChatContainer";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
@@ -12,13 +13,13 @@ const WatchPage = () => {
     dispatch(closeSidebar());
   }, []);
 
-
-
-  
   return (
-    <div>
-      <WatchFrame />
-      <CommentContainer/>
+    <div className="  m-auto mt-11">
+      <div className=" flex">
+        <WatchFrame />
+        <LiveChatContainer />
+      </div>
+      <CommentContainer />
     </div>
   );
 };
