@@ -1,13 +1,18 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-import React from "react";
+import React, { useState } from "react";
 
 const Comment = ({ comment }) => {
+  const { authorProfileImageUrl, authorDisplayName, textDisplay } = comment;
 
-const {authorProfileImageUrl,authorDisplayName,textDisplay}=comment
-  
+  const [isReadMore, setIsReadMore] = useState(true);
+
+  const toogleReadMore = () => {
+    setIsReadMore(!isReadMore);
+  };
+
   return (
-    <div className="  border-l-[1px] border-slate-400  rounded-lg p-1 mt-3  w-  shadow-slate-300 bg-slate-100 shadow-sm ">
+    <div className="  border-l-[1px] border-slate-400  rounded-lg p-1 mt-3    shadow-slate-300 bg-slate-50 shadow-sm ">
       <div className="flex  items-center">
         <img
           src={authorProfileImageUrl}
@@ -17,14 +22,25 @@ const {authorProfileImageUrl,authorDisplayName,textDisplay}=comment
         <p className="ml-2 font-bold">{authorDisplayName}</p>
       </div>
       <div>
-        <p className="text-sm p-2">{textDisplay}</p>
+        <p className="text-sm p-2">
+          {(isReadMore  )? textDisplay.slice(0, 200) : textDisplay}
+          {textDisplay.length > 200 ? (
+            <span
+              className="text-sky-700 cursor-pointer"
+              onClick={toogleReadMore}
+            >
+              {isReadMore ? "  ...read more" : "  read less"}
+            </span>
+          ) : (
+            <></>
+          )}
+        </p>
       </div>
-       
-       {comment?.replies?.map((item)=>
-                <Comment key={uuidv4()} comment={item}/>
-            )} 
 
-
+      {comment?.replies?.map((item) => (
+        <Comment key={uuidv4()} comment={item} />
+      ))}
+     
     </div>
   );
 };

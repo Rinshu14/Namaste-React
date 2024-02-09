@@ -3,6 +3,7 @@ import HamburgerSlice from "./HamburgerSlice";
 import suggestionSlice from "./SuggestionSlice";
 import SuggestionResultCacheSlice from "./SuggestionResultCacheSlice";
 import LiveChatSlice from "./LiveChatSlice";
+import VideoSlice from "./VideoSlice";
 
 const appStore = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const appStore = configureStore({
     SuggestionSlice: suggestionSlice,
     SuggestionResultCache: SuggestionResultCacheSlice,
     LiveChat:LiveChatSlice,
+    Video:VideoSlice
   },
 });
 

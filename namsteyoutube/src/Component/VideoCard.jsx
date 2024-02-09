@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 const VideoCard = ({ VideoDetails }) => {
   const { title, channelTitle, publishedAt } = VideoDetails.snippet;
   const thumbnail = VideoDetails.snippet.thumbnails.medium.url;
-  const viewCount = VideoDetails.statistics.viewCount;
-  const duration = VideoDetails.contentDetails.duration;
+  const viewCount = VideoDetails.statistics?.viewCount;
+  const duration = VideoDetails.contentDetails?.duration;
 
   return (
     <div className="bg-white inline-block rounded-lg w-64 items-center p-2 ml-6 mt-4 drop-shadow-lg text-slate-800">

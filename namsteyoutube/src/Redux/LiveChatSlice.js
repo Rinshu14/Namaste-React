@@ -4,16 +4,17 @@ import { LIVE_CHAT_COUNT } from "../Utils/Constants";
 const LiveChatslice = createSlice({
   name: "LiveChatslice",
   initialState: {
-    messages:[]
+    messages: [],
   },
   reducers: {
     addChatMsg: (state, action) => {
-     console.log(state.messages.length);
-    //  state.messages.splice(LIVE_CHAT_COUNT, 1)
+      if (state.messages.length > LIVE_CHAT_COUNT) {
+        state.messages.shift();
+      }
+
       state.messages.push(action.payload);
     },
   },
 });
-export const {addChatMsg} =LiveChatslice.actions;
+export const { addChatMsg } = LiveChatslice.actions;
 export default LiveChatslice.reducer;
-

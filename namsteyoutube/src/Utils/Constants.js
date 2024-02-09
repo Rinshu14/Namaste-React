@@ -18,7 +18,9 @@ export const buttonList = [
   "T-Series",
 ];
 
-export const youTube_API_Key = "AIzaSyCvkKkkKi1JI8OBCVkcsXc0lOCFxG5SvmM";
+export const youTube_API_Key = "AIzaSyChzZgSclSNgpoc2gefNprPJmw5ff3NvKU"
+// "AIzaSyCvkKkkKi1JI8OBCVkcsXc0lOCFxG5SvmM";
+
 export const youTube_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&key=" +
   youTube_API_Key +
@@ -30,8 +32,13 @@ export const search_sugst_api =
 export const GetVideoById =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=";
 
-export const LIVE_CHAT_COUNT = 20;
+export const LIVE_CHAT_COUNT = 15;
 
-export const comments_on_video="https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&order=relevance&videoId="
-// K0qzyq6aZ5E&key="+youTube_API_Key
-//https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&order=relevance&videoId=3BQ-iomGtvk&key=AIzaSyCvkKkkKi1JI8OBCVkcsXc0lOCFxG5SvmM
+export const comments_on_video =
+  "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&order=relevance&videoId=";
+
+export const channel_details_api =
+  "https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=";
+
+  export const video_by_categoryId="https://www.googleapis.com/youtube/v3/search?part=snippet&q=bieber&type=video&regionCode=IN&videoCategoryId="
+

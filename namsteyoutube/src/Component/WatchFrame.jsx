@@ -1,22 +1,16 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
-import { GetVideoById, youTube_API_Key } from "../Utils/Constants";
+
 
 const WatchFrame = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(() => {
-    // getVideoDetails();
-  }, []);
+  // useEffect(() => {
+  //   // getVideoDetails();
+  // }, []);
 
-  const getVideoDetails = async () => {
-    let response = await fetch(
-      GetVideoById + searchParams.get("v3") + "&key=" + youTube_API_Key
-    );
-    let data = await response.json();
-    console.log(data);
-  };
+ 
 
   return (
     <div className="">

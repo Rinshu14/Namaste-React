@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { useSearchParams } from "react-router-dom";
-import { GetVideoById } from "../Utils/Constants";
-import { useEffect ,useState} from "react";
+import { useEffect, useState } from "react";
 import { youTube_API_Key, comments_on_video } from "../Utils/Constants";
 
 import React from "react";
@@ -73,7 +72,8 @@ const CommentContainer = () => {
   ];
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const [commentsData,setCommentsData]=useState([])
+  const [commentsData, setCommentsData] = useState([]);
+  const [isLoading,setIsLoading]=useState(true)
 
   useEffect(() => {
     getVideoDetails();
@@ -84,19 +84,21 @@ const CommentContainer = () => {
       comments_on_video + searchParams.get("v3") + "&key=" + youTube_API_Key
     );
     let data = await response.json();
-  
-    setCommentsData([...data.items])
-    
-    
-  };
-  
 
-  
+    setCommentsData([...data?.items]);
+    setCommentsData(false)
+  };
+if(isLoading)<></>
   return (
     <div className=" border-black w-[45rem]">
+      <p className="font-bold mt-2">Comments ({commentsData.length})</p>
       {commentsData.map((item) => {
-       
-        return <Comment Key={uuidv4()} comment={item.snippet.topLevelComment.snippet} />;
+        return (
+          <Comment
+            Key={uuidv4()}
+            comment={item.snippet.topLevelComment.snippet}
+          />
+        );
       })}
     </div>
   );

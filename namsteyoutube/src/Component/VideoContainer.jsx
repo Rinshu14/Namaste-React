@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { youTube_API } from "../Utils/Constants";
 import VideoCard from "./VideoCard";
 import { useSelector } from "react-redux";
-
 import { Link } from "react-router-dom";
 
 const VideoContainer = () => {
@@ -15,11 +14,11 @@ const VideoContainer = () => {
   let fetchVideos = async () => {
     let res = await fetch(youTube_API);
     let data = await res.json();
-    setVideoList([...data.items]);
+    setVideoList([...data?.items]);
     setIsLoading(false);
   };
   useEffect(() => {
-    fetchVideos();
+   // fetchVideos();
   }, []);
   if (isloading) {
     return <></>;
@@ -35,7 +34,7 @@ const VideoContainer = () => {
       {videoList.map((item) => {
         return (
           <Link key={item.id} to={"/watch?v3=" + item.id}>
-            {" "}
+        
             <VideoCard VideoDetails={item} />{" "}
           </Link>
         );

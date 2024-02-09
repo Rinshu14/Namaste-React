@@ -43,3 +43,23 @@ export function generateName() {
    return nameList[Math.floor( Math.random() * nameList.length )];
   
 };
+
+export function likeCount(like){
+   let length=like.length;
+   let likesToReturn;
+   switch(length)
+   {
+    case 1,2,3,4:
+      likesToReturn= like
+      break;
+      case 5,6:
+        likesToReturn=(like/1000)+"";
+        likesToReturn=  likesToReturn.substring(0,4)+"K";
+        break;
+      default:
+        likesToReturn=(like/1000000)+"" ;
+        likesToReturn= likesToReturn.substring(0,4)+"M";
+   }
+   return likesToReturn
+
+}

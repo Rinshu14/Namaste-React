@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { toggleSidebar } from "../Redux/HamburgerSlice";
 import { setShowFalse, setShowTrue } from "../Redux/SuggestionSlice";
-import {addInSuggestion} from "../Redux/SuggestionResultCacheSlice"
+import { addInSuggestion } from "../Redux/SuggestionResultCacheSlice";
+
 import {
   search_Icon,
   youTube_logo,
@@ -13,32 +14,34 @@ import {
 } from "../Utils/Constants";
 
 const Head = () => {
+
+
   const [sideBarExpand, setSidebarExpand] = useState(true);
   const [searchText, setSearchText] = useState("");
   const [sugestionList, setSugestionList] = useState([]);
 
   const suggestBar = useSelector((state) => state.SuggestionSlice.show);
-  const SuggestionResultCache =useSelector((state)=>state.SuggestionResultCache);
+  const SuggestionResultCache = useSelector(
+    (state) => state.SuggestionResultCache
+  );
 
   let dispatch = useDispatch();
 
   useEffect(() => {
-    
-    if(SuggestionResultCache[searchText]){
+    if (SuggestionResultCache[searchText]) {
       setSugestionList([...SuggestionResultCache[searchText]]);
       return;
     }
-   
+
     const timer = setTimeout(() => {
       getSearchSuggestions();
     }, 200);
 
     const getSearchSuggestions = async () => {
-      
       const response = await fetch(search_sugst_api + searchText);
       const sugesttions = await response.json();
       setSugestionList([...sugesttions[1]]);
-    dispatch(addInSuggestion({[searchText]:[...sugesttions[1]]}))
+      dispatch(addInSuggestion({ [searchText]: [...sugesttions[1]] }));
     };
 
     return () => {
@@ -60,7 +63,7 @@ const Head = () => {
   };
 
   return (
-    <div className="h-12 bg-white grid grid-flow-col  px-1  md:px-2 lg:px-9 py-2 drop-shadow-md  ">
+    <div className="h-16 bg-white grid grid-flow-col  px-1  md:px-2 lg:px-9 py-4 drop-shadow-md  ">
       <div className="flex grid-cols-2">
         <img
           alt="menu"
@@ -68,18 +71,21 @@ const Head = () => {
           className="h-8 w-7 hover:cursor-pointer"
           onClick={handliClick}
         ></img>
-        <img
-          alt="youtube icon"
-          src={youTube_logo}
-          className="h-8 w-16 md:w-24 lg:w-28"
-        ></img>
+    
+          <img
+            alt="youtube icon"
+            src={youTube_logo}
+            className="h-8 w-16 md:w-24 lg:w-28"
+           
+          ></img>
+    
       </div>
       <div className="flex grid-cols-10 z-20">
         <div>
           <input
             type="text"
             placeholder="Search"
-            className="search border-2 border-slate-400 h-8 w-24 md:w-72  lg:w-96 px-3 rounded-l-2xl outline-none"
+            className="search border-2 border-slate-400 h-9 w-24 md:w-72  lg:w-96 px-3 rounded-l-2xl outline-none"
             onChange={handleOnChange}
             onFocus={() => {
               //setShowSuggestionList(true);
@@ -119,7 +125,7 @@ const Head = () => {
           )}
         </div>
         <button
-          className="h-8 w-10 bg-contain bg-no-repeat border-2 border-l-0 rounded-r-2xl border-slate-400"
+          className="h-9 w-11 bg-contain bg-no-repeat border-2 border-l-0 rounded-r-2xl border-slate-400"
           style={{
             backgroundImage: `url(${search_Icon})`,
           }}

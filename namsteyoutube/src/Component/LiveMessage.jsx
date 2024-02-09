@@ -8,7 +8,7 @@ const LiveMessage = ({message}) => {
         className="h-6 w-6  rounded-[50%]"  
       ></img>
       <p className="ml-1 font-bold text-sm">{message.name}</p>
-      <p className="ml-3 break-all text-xs">{message.chatText} </p>
+      <p className="ml-3 break-all text-xs p-1">{message.chatText} </p>
     </div>
   );
 };
