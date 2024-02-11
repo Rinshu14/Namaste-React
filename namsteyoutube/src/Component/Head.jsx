@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { toggleSidebar } from "../Redux/HamburgerSlice";
 import { setShowFalse, setShowTrue } from "../Redux/SuggestionSlice";
 import { addInSuggestion } from "../Redux/SuggestionResultCacheSlice";
+import { setSearchKey } from "../Redux/VideoFetchParameters";
 
 import {
   search_Icon,
@@ -14,8 +15,6 @@ import {
 } from "../Utils/Constants";
 
 const Head = () => {
-
-
   const [sideBarExpand, setSidebarExpand] = useState(true);
   const [searchText, setSearchText] = useState("");
   const [sugestionList, setSugestionList] = useState([]);
@@ -57,6 +56,20 @@ const Head = () => {
   const handleOnChange = (e) => {
     setSearchText(e.target.value);
   };
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      dispatch(setSearchKey(e.target.value));
+    }
+    
+  };
+
+  const handleSearchClick=() => {
+  
+      dispatch(setSearchKey(searchText));
+
+    
+  };
+
   const setInputText = () => {
     console.log("in setInputText");
     let input = document.querySelector("search");
@@ -71,17 +84,21 @@ const Head = () => {
           className="h-8 w-7 hover:cursor-pointer"
           onClick={handliClick}
         ></img>
-    
-          <img
-            alt="youtube icon"
-            src={youTube_logo}
-            className="h-8 w-16 md:w-24 lg:w-28"
-           
-          ></img>
-    
+
+        <img
+          alt="youtube icon"
+          src={youTube_logo}
+          className="h-8 w-16 md:w-24 lg:w-28"
+        ></img>
       </div>
       <div className="flex grid-cols-10 z-20">
-        <div>
+        <div
+          onBlur={() => {
+            //setShowSuggestionList(false);
+            console.log("onBlur2");
+            dispatch(setShowFalse());
+          }}
+        >
           <input
             type="text"
             placeholder="Search"
@@ -91,11 +108,7 @@ const Head = () => {
               //setShowSuggestionList(true);
               dispatch(setShowTrue());
             }}
-            onBlur={() => {
-              //setShowSuggestionList(false);
-              //console.log("onBlur")
-              dispatch(setShowFalse());
-            }}
+            onKeyDown={handleKeyDown}
           ></input>
           {suggestBar ? (
             <div
@@ -129,6 +142,7 @@ const Head = () => {
           style={{
             backgroundImage: `url(${search_Icon})`,
           }}
+          onClick={handleSearchClick}
         ></button>
       </div>
 

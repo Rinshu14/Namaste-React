@@ -6,6 +6,9 @@ import { AiOutlineLike } from "react-icons/ai";
 import { likeCount } from "../Utils/CommonMethods";
 
 const Description = () => {
+
+  debugger
+  
   const VideoData = useSelector((state) => state.Video.VideoDetails);
   const title = VideoData?.items?.[0]?.snippet?.title;
   const channelTitle = VideoData?.items?.[0].snippet.channelTitle;
@@ -61,7 +64,7 @@ const Description = () => {
           {views == undefined ? "" : likeCount(views)}
         </p>
         <p>
-          {(isReadMore & description.length>200) ? description.slice(0, 200) : description}
+          {(isReadMore & description!=undefined & description.length>200) ? description.slice(0, 200) : description}
           <span
             className="text-sky-700 cursor-pointer"
             onClick={toogleReadMore}

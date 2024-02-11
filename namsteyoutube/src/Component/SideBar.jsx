@@ -16,7 +16,7 @@ import { AiOutlineBulb } from "react-icons/ai";
 const SideBar = () => {
   return (
     <div className=" px-2 py-2 shadow-md shadow-slate-200">
-      <ul className="w-44 text-sm">
+      <ul className="w-40 text-sm">
         <Link to="/">
           <li className="flex items-center my-4"><IoMdHome className="mr-6 h-6 w-7"/>Home</li>
         </Link>

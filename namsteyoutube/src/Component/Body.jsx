@@ -8,6 +8,7 @@ const Body = () => {
   
 
   const expandSideBar = useSelector((store) => store.Hamburger.expandSideBar);
+  
   return (
     <div className="flex">
       {expandSideBar ? <SideBar /> : <></>}

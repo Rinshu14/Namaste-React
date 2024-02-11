@@ -86,7 +86,7 @@ const CommentContainer = () => {
     let data = await response.json();
 
     setCommentsData([...data?.items]);
-    setCommentsData(false)
+    setIsLoading(false)
   };
 if(isLoading)<></>
   return (

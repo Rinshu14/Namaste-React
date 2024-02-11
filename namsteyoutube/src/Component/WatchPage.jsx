@@ -20,7 +20,7 @@ const WatchPage = () => {
 
   useEffect(() => {
     dispatch(closeSidebar());
- //   getVideoDetails();
+ getVideoDetails();
   }, []);
 
   const getVideoDetails = async () => {
@@ -28,7 +28,7 @@ const WatchPage = () => {
       GetVideoById + searchParams.get("v3") + "&key=" + youTube_API_Key
     );
 
-    
+    debugger
     let data = await response.json();
 
     dispatch(addVideoDetails(data));
