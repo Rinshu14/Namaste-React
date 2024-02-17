@@ -7,23 +7,22 @@ const VideoFetchParametersSlice = createSlice({
     parameters: {
       serachKey: "",
       videoCategory: "All",
-      flag:"V"
+      flag: "V",
     },
   },
   reducers: {
     setSearchKey: (state, action) => {
- 
-      state.parameters={
+      state.parameters = {
         serachKey: action.payload,
         videoCategory: state.parameters.videoCategory,
-        flag:"S",
+        flag: "S",
       };
     },
     setVideoCategory: (state, action) => {
-state.parameters={
+      state.parameters = {
         serachKey: state.parameters.serachKey,
         videoCategory: action.payload,
-        flag:"V",
+        flag: "V",
       };
     },
   },

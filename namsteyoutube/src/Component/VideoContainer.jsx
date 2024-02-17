@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useRef} from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import {
   youTube_API,
   youTube_API_Key,
@@ -878,30 +878,40 @@ const videoData = [
 ];
 
 const VideoContainer = () => {
-  let [videoList, setVideoList] = useState([]);
-  let [isloading, setIsLoading] = useState(true);
-  let [isIntersecting,setIsIntersecting]=useState(false);
-
-
- const options = {
-    root: document.querySelector(".video_container"),
-    rootMargin: "0px",
-    threshold: 1.0,
-  };
-  const observer = useRef(
-    new IntersectionObserver(
-        (itemToObserve) => {
-            const first =itemToObserve;
-            if (first.isIntersecting) {
-                setIsIntersecting(true);
-            }
-        })
-  ,options);
+  const [videoList, setVideoList] = useState([]);
+  const [isloading, setIsLoading] = useState(true);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  let last = false;
+let options = {
+  root: document.querySelector(".video_container"),
+  rootMargin: "0px",
+  threshold: 1.0,
+};
+  const observer = useRef(null);
 
   const suggestBar = useSelector((state) => state.SuggestionSlice.show);
+
   const fetchingParameters = useSelector(
     (state) => state.VideoFetchParameters.parameters
   );
+
+console.log("state = "+isIntersecting)
+
+  //const observerlast = useCallback((node) => {
+  //   console.log("use call back")
+   
+  //   if (node == null) return;
+  //   if (observer.current) observer.current.disconnect();
+  //   observer.current = new IntersectionObserver((itemToObserve) => {
+  //     if (itemToObserve[0].isIntersecting) {
+  //       console.log("yes it is intersecting");
+  //   console.log("videoList length "+ videoList.length+"videoData length "+ videoData.length)
+  //       setVideoList([...videoList , ...videoData]);
+  //     }
+  //   },options);
+
+  //   observer.current.observe(node);
+  // });
 
   let fetchVideoCategory = async () => {
     let res = await fetch(video_categories + youTube_API_Key);
@@ -947,29 +957,34 @@ const VideoContainer = () => {
 
   useEffect(() => {
     //fetchVideos();
-
-    setVideoList([...videoData]);
+    // console.log("in use effect");
+    // console.log(videoList)
+    setVideoList([ ...videoData]);
     setIsLoading(false);
-  }, [fetchingParameters]);
+  }, [fetchingParameters, isIntersecting]);
 
   if (isloading) {
     return <></>;
   }
 
   return (
-    <div
-      className={
-        "video_container relative  drop-shadow-lg bg-slate-50 flex flex-wrap" +
-        (suggestBar ? " -z-10" : "")
-      }
-    >
-      {videoList.map((item) => {
-        return (
-          <Link key={item.id} to={"/watch?v3=" + item.id}>
-            <VideoCard VideoDetails={item} />
-          </Link>
-        );
-      })}
+    <div className="">
+      <div
+        className={
+          "video_container relative  drop-shadow-lg bg-slate-50 flex flex-wrap" +
+          (suggestBar ? " -z-10" : "")
+        }
+      >
+        {videoList.map((item, index) => {
+          // last = index == videoList.length - 1 ? true : false;
+          return (
+            <Link key={item.id} to={"/watch?v3=" + item.id}>
+              <VideoCard VideoDetails={item} />
+            </Link>
+          );
+        })}
+        {last ? <div >HIII </div> : <></>}
+      </div>
     </div>
   );
 };
