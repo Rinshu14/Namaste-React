@@ -6,13 +6,7 @@ import { useEffect } from "react";
 const WatchFrame = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // useEffect(() => {
-  //   // getVideoDetails();
-  // }, []);
-
- 
-
-  return (
+ return (
     <div className="">
       <iframe
         width="713"

@@ -5,11 +5,9 @@ const SuggestionResultCacheSlice =createSlice({
     initialState:{},
     reducers:
         {
-            // addNewSuggestion:(state,action)=>{
-            //   state.initialState.action.key=action.value;
-            // },
+            
             addInSuggestion:(state,action)=>{
-                //state.initialState.action.key=action.value;
+              
                 
                 state={...state,...action.payload}
                 return state

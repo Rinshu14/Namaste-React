@@ -49,7 +49,7 @@ export const channel_details_api =
   "https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=";
 
 export const video_by_categoryId =
-  "https://www.googleapis.com/youtube/v3/search?part=snippet&q=bieber&type=video&regionCode=IN&videoCategoryId=";
+  "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=20&regionCode=IN&videoCategoryId=";
 
 
   export const video_categories="https://www.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=IN&key="

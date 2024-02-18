@@ -4,7 +4,6 @@ import { setShowFalse, setShowTrue } from "../Redux/SuggestionSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { addInSuggestion } from "../Redux/SuggestionResultCacheSlice";
-
 import { setSearchKey } from "../Redux/VideoFetchParameters";
 
 const SearchComponent = () => {
@@ -59,7 +58,6 @@ const SearchComponent = () => {
       <div
         onBlur={async () => {
           setTimeout(() => {
-            console.log("blur");
             dispatch(setShowFalse());
           }, 200);
         }}
@@ -84,9 +82,9 @@ const SearchComponent = () => {
                     key={item}
                     className="hover:bg-slate-100 px-2 py-1 rounded-lg"
                     onClick={() => {
-                      console.log("onClick");
                       setSearchText(item);
-                      dispatch(setShowFalse());
+                      dispatch(setShowFalse())
+                      dispatch(setSearchKey(searchText));
                     }}
                   >
                     {item}

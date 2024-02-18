@@ -10,7 +10,7 @@ const suggestSlice=createSlice({
         state.show=true;
         },
         setShowFalse:(state,action)=>{
-            console.log("in set show false")
+            
             state.show=false;
             },
     }

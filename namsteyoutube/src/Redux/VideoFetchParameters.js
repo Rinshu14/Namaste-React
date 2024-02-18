@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
+
 
 const VideoFetchParametersSlice = createSlice({
   name: "VideoFetchParametersSlice",
@@ -12,6 +12,7 @@ const VideoFetchParametersSlice = createSlice({
   },
   reducers: {
     setSearchKey: (state, action) => {
+      
       state.parameters = {
         serachKey: action.payload,
         videoCategory: state.parameters.videoCategory,
