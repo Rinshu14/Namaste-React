@@ -1,10 +1,11 @@
 import React from "react";
-import { search_Icon, search_sugst_api } from "../Utils/Constants";
+import { search_sugst_api } from "../Utils/Constants";
 import { setShowFalse, setShowTrue } from "../Redux/SuggestionSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { addInSuggestion } from "../Redux/SuggestionResultCacheSlice";
 import { setSearchKey } from "../Redux/VideoFetchParameters";
+import { CiSearch } from "react-icons/ci";
 
 const SearchComponent = () => {
   let dispatch = useDispatch();
@@ -83,8 +84,9 @@ const SearchComponent = () => {
                     className="hover:bg-slate-100 px-2 py-1 rounded-lg"
                     onClick={() => {
                       setSearchText(item);
-                      dispatch(setShowFalse())
-                      dispatch(setSearchKey(searchText));
+
+                      dispatch(setSearchKey(item));
+                      dispatch(setShowFalse());
                     }}
                   >
                     {item}
@@ -98,12 +100,11 @@ const SearchComponent = () => {
         )}
       </div>
       <button
-        className="h-9 w-11 bg-contain bg-no-repeat border-2 border-l-0 rounded-r-2xl border-slate-400"
-        style={{
-          backgroundImage: `url(${search_Icon})`,
-        }}
+        className="h-9 w-11  border-2 border-l-0 rounded-r-2xl border-slate-400"
         onClick={handleSearchClick}
-      ></button>
+      >
+        <CiSearch className="h-7 w-9" />
+      </button>
     </div>
   );
 };

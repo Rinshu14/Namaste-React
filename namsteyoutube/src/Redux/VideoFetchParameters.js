@@ -12,7 +12,7 @@ const VideoFetchParametersSlice = createSlice({
   },
   reducers: {
     setSearchKey: (state, action) => {
-      
+      console.log("from set search key=="+ action.payload);
       state.parameters = {
         serachKey: action.payload,
         videoCategory: state.parameters.videoCategory,
@@ -20,6 +20,7 @@ const VideoFetchParametersSlice = createSlice({
       };
     },
     setVideoCategory: (state, action) => {
+      
       state.parameters = {
         serachKey: state.parameters.serachKey,
         videoCategory: action.payload,

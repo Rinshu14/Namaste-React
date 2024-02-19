@@ -77,7 +77,7 @@ const CommentContainer = () => {
 
   useEffect(() => {
     getVideoDetails();
-  }, []);
+  }, [searchParams]);
 
   const getVideoDetails = async () => {
     let response = await fetch(

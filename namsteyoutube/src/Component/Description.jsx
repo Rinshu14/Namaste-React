@@ -6,13 +6,16 @@ import { AiOutlineLike } from "react-icons/ai";
 import { likeCount } from "../Utils/CommonMethods";
 
 const Description = () => {
+  
   const VideoData = useSelector((state) => state.Video.VideoDetails);
+  debugger
   const title = VideoData?.items?.[0]?.snippet?.title;
   const channelTitle = VideoData?.items?.[0].snippet.channelTitle;
   const channelId = VideoData?.items?.[0].snippet.channelId;
   const likes = VideoData?.items?.[0].statistics?.likeCount;
   const views = VideoData?.items?.[0].statistics?.viewCount;
   const description = VideoData?.items?.[0].snippet?.description;
+ 
   const [isLoading, setIsLoading] = useState(true);
   const [channelImage, setChannelImage] = useState("");
 
@@ -24,7 +27,7 @@ const Description = () => {
 
   useEffect(() => {
     getChannelDetails();
-  }, []);
+  }, [VideoData]);
 
   let getChannelDetails = async () => {
     let res = await fetch(

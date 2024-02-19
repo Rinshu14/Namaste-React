@@ -4,11 +4,13 @@ import {
   youTube_API_Key,
   video_categories,
   youTube_API_for_search,
+  shimmerUICount
 } from "../Utils/Constants";
 import VideoCard from "./VideoCard";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Loader from "./Loader"
+import Loader from "./Loader";
+import VideoCardShimmer from "./VideoCardShimmer";
 
 const VideoContainer = () => {
   const [videoList, setVideoList] = useState([]);
@@ -17,13 +19,12 @@ const VideoContainer = () => {
   const observer = useRef(null);
   const nextPageToken = useRef("");
 
-
   const suggestBar = useSelector((state) => state.SuggestionSlice.show);
   const fetchingParameters = useSelector(
     (state) => state.VideoFetchParameters.parameters
   );
 
-  console.log("fetching parameters=" + fetchingParameters.videoCategory);
+  // console.log("fetching parameters=" + fetchingParameters.videoCategory);
 
   const observerlast = useCallback((node) => {
     if (node == null) return;
@@ -33,7 +34,6 @@ const VideoContainer = () => {
         fetchMoreVideos();
       }
     });
-
     observer.current.observe(node);
   });
 
@@ -47,7 +47,6 @@ const VideoContainer = () => {
   };
 
   let fetchMoreVideos = async () => {
-
     if (nextPageToken.current == undefined) return;
     let res = await fetch(youTube_API + "&pageToken=" + nextPageToken.current);
     let data = await res.json();
@@ -56,7 +55,6 @@ const VideoContainer = () => {
   };
 
   let fetchVideos = async () => {
-  
     if (fetchingParameters.flag == "V") {
       let res = await fetch(youTube_API);
       let data = await res.json();
@@ -85,14 +83,25 @@ const VideoContainer = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect")
+  
+    setIsLoading(true);
     fetchVideos();
+    // setIsLoading(true)
   }, [fetchingParameters]);
 
   if (isloading) {
-    return <></>;
+    return <div className="flex flex-wrap justify-evenly">
+      {
+        Array(shimmerUICount).fill("").map(()=>{
+      
+        return <VideoCardShimmer/>}
+
+        )
+      }
+    </div>;
   }
 
+  
   return (
     <div className="">
       <div
@@ -101,15 +110,22 @@ const VideoContainer = () => {
           (suggestBar ? " -z-10" : "")
         }
       >
+    
         {videoList.map((item) => {
           return (
-            <Link key={item.id} to={"/watch?v3=" + item.id}>
+            <Link key={item.id} to={"/watch?v3=" + ((fetchingParameters.flag == "V")?item.id:item.id.videoId)}>
               <VideoCard VideoDetails={item} />
             </Link>
           );
         })}
       </div>
-      <div ref={observerlast}><Loader/></div>
+      {fetchingParameters.videoCategory == "All" ? (
+        <div ref={observerlast}>
+          <Loader />
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
