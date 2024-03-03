@@ -1,46 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Login from "./Login";
 import Header from "./Header";
 import Browse from "./Browse";
 import ErrorPage from "./ErrorPage";
-import SignUp from "./SignUp";
-import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
 
-
+} from "react-router-dom";
 
 
 const Body = () => {
-
-const appRouter=createBrowserRouter([
+  const appRouter = createBrowserRouter([
     {
-       path:"/",
-      element:<Login/>,
-      errorElement:<ErrorPage/>,
-      children:[
-        {
-            path:"/browse",
-            element:<Browse/>
+      path: "/",
+      element: <Login />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/browse",
+      element: <Browse />,
+    },
+  ]);
 
-        },
-        {
-            path:"/signup",
-            element:<SignUp/>
+ 
 
-        },
 
-      ]
-    }
-
-])
 
   return (
-    
-
-    <div >
-        <Header/>
-    <RouterProvider router={appRouter}/>
+    <div className="h-[100vh]">
+      <RouterProvider router={appRouter} />
     </div>
-   
   );
 };
 
