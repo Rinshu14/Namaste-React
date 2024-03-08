@@ -90,7 +90,7 @@ const VideoContainer = () => {
   }, [fetchingParameters]);
 
   if (isloading) {
-    return <div className="flex flex-wrap justify-evenly">
+    return <div className={"flex flex-wrap justify-evenly  bg-slate-50"+ (suggestBar ? " -z-10" : "")}>
       {
         Array(shimmerUICount).fill("").map(()=>{
       
