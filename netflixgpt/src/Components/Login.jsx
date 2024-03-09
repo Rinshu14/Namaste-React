@@ -9,14 +9,14 @@ import {
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Redux/userSlice";
-import { useNavigate } from "react-router-dom";
+
 import Header from "./Header";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isError, setIsError] = useState("");
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  
 
   let handleToggel = () => {
     setIsSignIn(!isSignIn);
@@ -76,7 +76,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/93da5c27-be66-427c-8b72-5cb39d275279/94eb5ad7-10d8-4cca-bf45-ac52e0a052c0/IN-en-20240226-popsignuptwoweeks-perspective_alpha_website_small.jpg')] h-[100vh] flex flex-col ">
+    <div className=" bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/93da5c27-be66-427c-8b72-5cb39d275279/94eb5ad7-10d8-4cca-bf45-ac52e0a052c0/IN-en-20240226-popsignuptwoweeks-perspective_alpha_website_small.jpg')] h-[100vh] flex flex-col ">
       <Header />
 
       <div className=" bg-slate-800  w-[22rem]   bg-opacity-80 rounded-md m-auto p-3">

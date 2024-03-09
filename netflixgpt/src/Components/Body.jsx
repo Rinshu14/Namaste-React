@@ -23,12 +23,9 @@ const Body = () => {
     },
   ]);
 
- 
-
-
-
-  return (
-    <div className="h-[100vh]">
+ return (
+    <div className="m-0">
+      
       <RouterProvider router={appRouter} />
     </div>
   );

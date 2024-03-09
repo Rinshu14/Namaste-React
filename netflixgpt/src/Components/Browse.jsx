@@ -1,11 +1,25 @@
-import React from 'react'
+import React  from 'react'
 import Header from './Header'
+import useFetchMovies from '../CustomHooks/useFetchMovies'
+import MainContainer from './MainContainer'
+import SecondaryContainer from './SecondaryContainer'
+import { now_playing } from '../Utils/Constants'
+
+
+
 
 const Browse = () => {
-  return (
-    <div>
+
+  useFetchMovies(now_playing);
+
+return (
+  
+    <div >
+    
       <Header/>
-      Browse</div>
+      <MainContainer/>
+      <SecondaryContainer/>
+      </div>
   )
 }
 
