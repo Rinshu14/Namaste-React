@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
+import { signIn,signUp } from "../Utils/Constants";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Redux/userSlice";
 
@@ -81,7 +82,7 @@ const Login = () => {
 
       <div className=" bg-slate-800  w-[22rem]   bg-opacity-80 rounded-md m-auto p-3">
         <span className="text-slate-200 m-6 font-medium text-2xl">
-          {isSignIn ? "Sign In" : "Sign Up"}
+          {isSignIn ? signIn : signUp}
         </span>
         <form
           onSubmit={(e) => {

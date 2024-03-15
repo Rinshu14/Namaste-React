@@ -5,13 +5,15 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../Utils/firebase";
 import { addUser, removeUser } from "../Redux/userSlice";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { user_profile_icon } from "../Utils/Constants";
+import { user_profile_icon,gptSearch,home } from "../Utils/Constants";
 import { FiLogOut } from "react-icons/fi";
+import { toggleShowSearchGPT } from "../Redux/GPTSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const  showSearchGPT =useSelector((state)=>state.GPTSlice.showSearchGPT)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -37,6 +39,11 @@ const Header = () => {
     };
   }, []);
 
+  const toggelGPTSrearch=()=>{
+    dispatch(toggleShowSearchGPT())
+
+  }
+
   const signOffClick = () => {
     signOut(auth)
       .then(() => {
@@ -51,10 +58,11 @@ const Header = () => {
 
       {user && (
         <div className="flex py-3 mx-3">
+      <button className=" w-24 rounded-xl h-8 text-sm mx-5 cursor-pointer bg-gradient-to-r from-pink-800 to-pink-950  text-white realtive z-10" onClick={toggelGPTSrearch}>
+           {showSearchGPT? home: gptSearch}
+          </button> 
+        
           <img src={user_profile_icon} className="h-7 w-7"></img>
-          {/* <button className="mx-5 cursor-pointer" onClick={signOffClick}>
-            <FiLogOut className="w-6 h-6  text-white" />
-          </button> */}
           <FiLogOut className="w-6 h-6 m-1 mx-5 text-white cursor-pointer" onClick={signOffClick}/>
         </div>
       )}
