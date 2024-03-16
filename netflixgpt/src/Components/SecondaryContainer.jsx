@@ -1,6 +1,6 @@
 import React from 'react'
 import useFetchMovies from '../CustomHooks/useFetchMovies'
-import { popular,top_rated ,movie_genere_ids} from '../Utils/Constants'
+import { Popular,top_rated ,movie_genere_ids} from '../Utils/Constants'
 import useFetchMoviesByGenre from '../CustomHooks/useFetchMoviesByGenre'
 import MovieList from './MovieList'
 import { useSelector } from 'react-redux'
@@ -10,7 +10,7 @@ const SecondaryContainer = () => {
 
   
   
-  useFetchMovies("popular");
+  useFetchMovies(Popular);
   useFetchMovies(top_rated);
   useFetchMoviesByGenre("Action",movie_genere_ids.Action.id)
   useFetchMoviesByGenre("Comedy",movie_genere_ids.Comedy.id)

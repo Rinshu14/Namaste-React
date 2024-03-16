@@ -1,6 +1,3 @@
-import react from "react";
-
-
 import openai from "../Utils/OpenAi";
 import { api_options, movie_search_api ,} from "../Utils/Constants";
 

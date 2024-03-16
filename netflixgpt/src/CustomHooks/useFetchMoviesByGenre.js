@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
-import { api_options } from "../Utils/Constants";
+import { api_options,Action,Horror,Romance,Comedy } from "../Utils/Constants";
 import {
   addAction,
   addComedy,
   addHorror,
   addRomance,
 } from "../Redux/MovieSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 
 const useFetchMoviesByGenre = (genere, genereId) => {
   
 
   const dispatch = useDispatch();
+
+  const movie_data=useSelector((state)=> state.movie[genere])
   useEffect(() => {
+    if(movie_data)return
     getMovieKey();
   }, []);
 
@@ -26,19 +29,19 @@ const useFetchMoviesByGenre = (genere, genereId) => {
     let data = await res.json();
 
     switch (genere) {
-      case "Action":
+      case Action:
         dispatch(addAction(data.results));
         break;
 
-      case "Horror":
+      case Horror:
         dispatch(addHorror(data.results));
         break;
 
-      case "Comedy":
+      case Comedy:
         dispatch(addComedy(data.results));
         break;
 
-      case "Romance":
+      case Romance:
         dispatch(addRomance(data.results));
         break;
 

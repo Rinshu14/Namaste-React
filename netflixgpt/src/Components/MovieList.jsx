@@ -17,14 +17,14 @@ const MovieList = ({ title,movieList }) => {
   return (
     <div
       className={
-        "m-2 relative z-10" + ((title == "Now Playing"  ) ? " mt-[-20rem]" : "")
+        "relative z-10" + ((title == "Now Playing"  ) ? " lg:mt-[-14rem] " : "")
       }
     >
-      <p className="mx-3 text-white">{title}</p>
+      <p className="mx-3 text-white text-xl font-semibold">{title}</p>
       <div className="flex overflow-x-scroll">
         <div className="flex p-2  my-2">
           {movieList.map((item) => {
-            return <MovieCard movie={item} />;
+            return <MovieCard key={item.id} movie={item} />;
           })}
         </div>
       </div>

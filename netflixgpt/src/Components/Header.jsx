@@ -53,17 +53,17 @@ const Header = () => {
   };
   // px-5 py-3
   return (
-    <div className="absolute flex justify-between w-[100vw] bg-gradient-to-b from-slate-900 z-10">
-      <img className=" h-16 px-5 py-4 " src={netflix_logo}></img>
+    <div className="absolute flex sm:justify-between w-screen bg-slate-950 md:bg-gradient-to-b from-slate-900 z-10">
+      <img className=" h-16 px-2 py-5 md:px-5 md:py-4 " src={netflix_logo}></img>
 
       {user && (
         <div className="flex py-3 mx-3">
-      <button className=" w-24 rounded-xl h-8 text-sm mx-5 cursor-pointer bg-gradient-to-r from-pink-800 to-pink-950  text-white realtive z-10" onClick={toggelGPTSrearch}>
+      <button className="w-28 rounded-xl h-8 text-sm ml-[4.5rem] mr-5  md:mx-5 cursor-pointer bg-gradient-to-r from-pink-800 to-pink-950  text-white realtive z-10" onClick={toggelGPTSrearch}>
            {showSearchGPT? home: gptSearch}
           </button> 
         
           <img src={user_profile_icon} className="h-7 w-7"></img>
-          <FiLogOut className="w-6 h-6 m-1 mx-5 text-white cursor-pointer" onClick={signOffClick}/>
+          <FiLogOut className="w-6 h-6 m-1 mx-4 md:mx-5 text-white cursor-pointer" onClick={signOffClick}/>
         </div>
       )}
     </div>

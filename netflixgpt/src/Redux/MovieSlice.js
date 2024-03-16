@@ -1,18 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { now_playing,top_rated,popular } from "../Utils/Constants";
+import { now_playing,top_rated,popular,Comedy, Horror, Romance, Action ,Popular} from "../Utils/Constants";
 
 const movieSlice = createSlice({
   name: "MovieSlice",
   initialState: {
     now_playing: null,
-    trailerVideo: null,
+    DisplayMovie: {movieIndex:null,
+    trailerVideo:null},
     top_rated: null,
-    Popular: null,
-    Comedy: null,
-    Horror: null,
-    Romance: null,
-    Action: null,
-    Family: null,
+    [Popular]: null,
+    [Comedy]: null,
+   [Horror]: null,
+    [Romance]: null,
+    [Action]: null,
+   
 
   },
   reducers: {
@@ -24,31 +25,34 @@ const movieSlice = createSlice({
     },
     addTrailerVideo: (state, action) => {
     
-      state.trailerVideo = action.payload;
+      state.DisplayMovie.trailerVideo = action.payload;
+    },
+    addDisplayMovieIndex:(state, action)=>{
+      state.DisplayMovie.movieIndex = action.payload;
     },
     addtop_rated: (state, action) => {
       state.top_rated = action.payload;
     },
     addHorror: (state, action) => {
-      state.Horror = action.payload;
+      state[Horror] = action.payload;
     },
     addRomance: (state, action) => {
-      state.Romance = action.payload;
+      state[Romance] = action.payload;
     },
     addComedy: (state, action) => {
-      state.Comedy = action.payload;
+      state[Comedy] = action.payload;
     },
     addAction: (state, action) => {
    
-      state.Action = action.payload;
+      state[Action] = action.payload;
     },
   
     addPopular: (state, action) => {
     
-      state.Popular = action.payload;
+      state[Popular] = action.payload;
     },
   },
 });
 
-export const { addnow_playing, removenow_playing, addTrailerVideo,addtop_rated,addPopular,addRomance,addHorror,addComedy,addAction } = movieSlice.actions;
+export const { addnow_playing, removenow_playing, addTrailerVideo,addtop_rated,addPopular,addRomance,addHorror,addComedy,addAction ,addDisplayMovieIndex} = movieSlice.actions;
 export default movieSlice.reducer;
