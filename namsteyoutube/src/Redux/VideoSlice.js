@@ -6,7 +6,7 @@ const VideoSlice = createSlice({
   reducers: {
     
     addVideoDetails: (state, action) => {
-      console.log("in addVideoDeatils")
+   
       state.VideoDetails = action.payload;
     },
   },

@@ -13,15 +13,16 @@ import Description from "./Description";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
-  console.log(useSearchParams())
+  
   const [searchParams, setSearchParams] = useSearchParams();
   const [isloading, setIsLoading] = useState(true);
 
   const VideoDetails = useSelector((state) => state.Video.VideoDetails);
 
-console.log(searchParams)
+  const screenSize= useSelector((state)=>state.ScreenSize.screenSize)
+
   useEffect(() => {
-    console.log("in watch page useEffect")
+   
     dispatch(closeSidebar());
     getVideoDetails();
   }, [searchParams]);
@@ -34,21 +35,24 @@ console.log(searchParams)
     dispatch(addVideoDetails(data));
     setIsLoading(false);
   };
-  console.log("in return of watch page")
-  if (isloading) return <LiveChatContainer />;
+  
+  if (isloading) return <></>;
   else {
     return (
-      <div className="  m-auto mt-11">
+      <div className=" mt-11 lg:m-auto lg:mt-11">
         <div className=" flex">
           <WatchFrame />
-          <LiveChatContainer />
+         {(screenSize=="Mobile")?<></> :<LiveChatContainer />}
         </div>
         <div className="flex">
           <div>
             <Description />
-            <CommentContainer />
+           
+            {(screenSize=="Mobile")?<RelatedVideoContainer/> :<CommentContainer />}
+            
           </div>
-          <RelatedVideoContainer />
+          {(screenSize=="Mobile")?<></> :<RelatedVideoContainer/>}
+          {/* <RelatedVideoContainer /> */}
         </div>
       </div>
     );

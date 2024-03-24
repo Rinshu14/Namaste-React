@@ -5,6 +5,7 @@ import SuggestionResultCacheSlice from "./SuggestionResultCacheSlice";
 import LiveChatSlice from "./LiveChatSlice";
 import VideoSlice from "./VideoSlice";
 import VideoFetchParametersSlice from "./VideoFetchParameters";
+import ScreenSizeSlice from "./ScreenSizeSlice";
 
 const appStore = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ const appStore = configureStore({
     SuggestionResultCache: SuggestionResultCacheSlice,
     LiveChat:LiveChatSlice,
     Video:VideoSlice,
-    VideoFetchParameters:VideoFetchParametersSlice
+    VideoFetchParameters:VideoFetchParametersSlice,
+    ScreenSize:ScreenSizeSlice
   },
 });
 

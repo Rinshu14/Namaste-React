@@ -11,7 +11,7 @@ import MainContainer from "./Component/MainContainer";
 function App() {
   return (
     <Provider store={appStore}>
-      <div className="App">
+      <div className="App h-screen">
         <Head />
         <RouterProvider router={appRouter} />
       

@@ -29,7 +29,7 @@ const SearchComponent = () => {
     }, 200);
 
     const getSearchSuggestions = async () => {
-      const response = await fetch(search_sugst_api + searchText);
+      const response = await fetch(`${search_sugst_api}${searchText}`);
       const sugesttions = await response.json();
       setSugestionList([...sugesttions[1]]);
       dispatch(addInSuggestion({ [searchText]: [...sugesttions[1]] }));
@@ -66,7 +66,7 @@ const SearchComponent = () => {
         <input
           type="text"
           placeholder="Search"
-          className="search border-2 border-slate-400 h-9 w-24 md:w-72  lg:w-96 px-3 rounded-l-2xl outline-none"
+          className="search border-2 border-slate-400 h-9  w-40 md:w-72  lg:w-96 px-3 rounded-l-2xl outline-none"
           onChange={handleOnChange}
           value={searchText}
           onFocus={() => {

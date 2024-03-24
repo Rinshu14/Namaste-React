@@ -23,7 +23,7 @@ const LiveChatContainer = () => {
   }, []);
 
   return (
-    <div className="ml-7 w-[20rem] p-2  h-[25rem] rounded-lg  border-2 border-slate-600  flex flex-col justify-end">
+    <div className="hidden sm:flex ml-7 w-[20rem] p-2 h-[14rem] sm:h-[25rem]  lg:h-[37rem] xl:h-[30rem] rounded-lg  border-2 border-slate-600   flex-col justify-end ">
       <div className=" overflow-y-scroll scrollbar flex flex-col-reverse">
         <div className="">
           {liveChat.map((item) => {

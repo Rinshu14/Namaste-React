@@ -31,7 +31,7 @@ export const youTube_API ="https://youtube.googleapis.com/youtube/v3/videos?part
  
 
 export const search_sugst_api =
-  " http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+  " https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
 export const GetVideoById =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=";

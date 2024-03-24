@@ -90,7 +90,7 @@ const CommentContainer = () => {
   };
 if(isLoading)<></>
   return (
-    <div className=" border-black w-[45rem]">
+    <div className=" border-black w-[25rem] sm:w-[41rem] md:w-[48rem] lg:w-[40rem] xl:w-[45rem]">
       <p className="font-bold mt-2">Comments ({commentsData.length})</p>
       {commentsData.map((item) => {
         return (

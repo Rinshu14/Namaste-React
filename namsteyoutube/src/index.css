@@ -8,12 +8,26 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   }
   body{
     /* background-color: #DBD7D2; */
     font-family: Arial, Helvetica, sans-serif;
+    -ms-overflow-style:none;
   }
 
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+/*   
+  body {
+    -ms-overflow-style:none;
+  } */
   /* @layer utilities{
     .overflow-scrollabel{
       display: flex;

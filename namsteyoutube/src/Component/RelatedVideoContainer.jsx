@@ -5,10 +5,13 @@ import { useEffect, useState } from "react";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
 import VideoCardShimmer from "./VideoCardShimmer";
+import RealtedVideoCard from "./RealtedVideoCard";
+import { UseSelector } from "react-redux";
 
 const RelatedVideoContainer = () => {
   const suggestBar = useSelector((state) => state.SuggestionSlice.show);
   const videoData = useSelector((state) => state.Video.VideoDetails);
+  const screenSize=useSelector((state)=> state.ScreenSize.screenSize)
 
   const categoryId = videoData?.items?.[0].snippet?.categoryId;
 
@@ -44,9 +47,11 @@ const RelatedVideoContainer = () => {
       className={"drop-shadow-lg flex flex-col" + (suggestBar ? " -z-10" : "")}
     >
       {videoList.map((item) => {
+         
         return (
-          <Link key={item.id} to={"/watch?v3=" + item.id.videoId}>
-            <VideoCard VideoDetails={item} />
+         
+          <Link key={item.id.videoId} to={"/watch?v3=" + item.id.videoId}>
+          {(screenSize=="Mobile")?<RealtedVideoCard VideoDetails={item} /> :<VideoCard VideoDetails={item}/>} 
           </Link>
         );
       })}

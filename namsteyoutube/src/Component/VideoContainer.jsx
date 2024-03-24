@@ -90,7 +90,7 @@ const VideoContainer = () => {
   }, [fetchingParameters]);
 
   if (isloading) {
-    return <div className={"flex flex-wrap justify-evenly  bg-slate-50"+ (suggestBar ? " -z-10" : "")}>
+    return <div className={"m-auto flex flex-wrap justify-evenly  bg-slate-50"+ (suggestBar ? " -z-10" : "")}>
       {
         Array(shimmerUICount).fill("").map(()=>{
       
@@ -103,10 +103,10 @@ const VideoContainer = () => {
 
   
   return (
-    <div className="">
+    <div className="h-[88.8%] overflow-y-scroll scrollbar  ">
       <div
         className={
-          "video_container relative  drop-shadow-lg bg-slate-50 flex flex-wrap" +
+          "video_container relative   drop-shadow-lg bg-slate-50 flex flex-wrap " +
           (suggestBar ? " -z-10" : "")
         }
       >

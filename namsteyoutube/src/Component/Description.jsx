@@ -8,7 +8,7 @@ import { likeCount } from "../Utils/CommonMethods";
 const Description = () => {
   
   const VideoData = useSelector((state) => state.Video.VideoDetails);
-  debugger
+
   const title = VideoData?.items?.[0]?.snippet?.title;
   const channelTitle = VideoData?.items?.[0].snippet.channelTitle;
   const channelId = VideoData?.items?.[0].snippet.channelId;
@@ -43,7 +43,7 @@ const Description = () => {
   }
 
   return (
-    <div className="shadow-md p-2 mb-3  w-[45rem]">
+    <div className="shadow-md p-2 mb-3  w-[24.5rem] sm:w-[40rem] md:w-[55rem] lg:w-[40rem] xl:w-[45rem]">
       <p className="font-bold text-lg">{title}</p>
       <div className="flex items-center justify-between">
         <div className="flex items-center">

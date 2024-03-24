@@ -1,25 +1,26 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-import { useEffect } from "react";
+
 
 
 const WatchFrame = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
  return (
-    <div className="">
+    <div className="w-screen aspect-video sm:w-[32rem] lg:w-[40rem] lg:h-[37rem] xl:h-[30rem] xl:w-[45rem] mt-6 md:mt-9">
       <iframe
-        width="713"
-        height="401"
+        // width="713"
+        // height="401"
+        className="w-screen aspect-video sm:w-[32rem] lg:w-[40rem] lg:h-[37rem] xl:h-[30rem] xl:w-[45rem]"
         src={
           "https://www.youtube.com/embed/" +
           searchParams.get("v3") +
           "?list=RDR-vnALzyUdg"
         }
-        title="Sach Keh Raha Hai Deewana | Mayank Maurya | Rehna Hai Tere Dil Mein | Maadhyam I TBS Music I RHTDM"
+        
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
-        className="rounded-lg"
+    
       ></iframe>
     </div>
   );

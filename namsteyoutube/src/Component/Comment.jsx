@@ -12,7 +12,7 @@ const Comment = ({ comment }) => {
   };
 
   return (
-    <div className="  border-l-[1px] border-slate-400  rounded-lg p-1 mt-3    shadow-slate-300 bg-slate-50 shadow-sm ">
+    <div className=" border-l-[1px] border-slate-400  rounded-lg p-1 mt-3    shadow-slate-300 bg-slate-50 shadow-sm ">
       <div className="flex  items-center">
         <img
           src={authorProfileImageUrl}
@@ -22,7 +22,7 @@ const Comment = ({ comment }) => {
         <p className="ml-2 font-bold">{authorDisplayName}</p>
       </div>
       <div>
-        <p className="text-sm p-2">
+        <p className="text-sm p-2 break-words">
           {(isReadMore  )? textDisplay.slice(0, 200) : textDisplay}
           {textDisplay.length > 200 ? (
             <span
