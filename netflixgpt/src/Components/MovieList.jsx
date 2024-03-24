@@ -3,13 +3,12 @@ import { useSelector } from "react-redux";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title,movieList }) => {
-  // const movieList = useSelector((state) => {
-  //   return state.movie[title];
-  // });
 
-  const isSearch  = useSelector((state)=> state.GPTSlice.showSearchGPT)
+
+  // const isSearch  = useSelector((state)=> state.GPTSlice.showSearchGPT)
   if (title == "now_playing") title = "Now Playing";
   if (title == "popular") title = "Popular";
+  if (title == "top_rated") title = "Top Rated";
 
   if (!movieList) return;
 

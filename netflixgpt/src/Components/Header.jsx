@@ -53,7 +53,7 @@ const Header = () => {
   };
   // px-5 py-3
   return (
-    <div className="absolute flex sm:justify-between w-screen bg-slate-950 md:bg-gradient-to-b from-slate-900 z-10">
+    <div className="absolute flex sm:justify-between w-screen bg-slate-950 sm:bg-transparent md:bg-gradient-to-b from-slate-900 z-10">
       <img className=" h-16 px-2 py-5 md:px-5 md:py-4 " src={netflix_logo}></img>
 
       {user && (
